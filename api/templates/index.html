@@ -3,17 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <title>Neural Sentiment</title>
   </head>
   <body>
     <form action="/" method="POST">
-      <input type="text" name="sentence" />
-      <input type="submit" value="Submit" />
+      <h1 class="text-center text-primary my-5">Neural Sentiment</h1>
+      <input
+        type="text"
+        name="sentence"
+        placeholder="Enter a sentence"
+        class="form-control w-50 mx-auto my-5"
+      />
+      <input
+        type="submit"
+        value="Submit"
+        class="btn btn-primary d-block mx-auto w-25 my-5"
+      />
     </form>
-    <div style="display: flex; align-items: center; gap: 5px">
-      <p style="font-weight: bold; font-family: sans-serif">Sentiment:</p>
+    <div
+      class="d-flex justify-content-center align-items-center w-50 mx-auto my-5 p-5 border border-primary"
+    >
+      <p
+        class="text-center"
+        style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
+      >
+        Sentiment:
+      </p>
       {% if sentiment %}
-      <p style="font-family: sans-serif">{{ sentiment }}</p>
+      <p
+        class="text-center {% if sentiment == 'Positive' %} text-success {% elif sentiment == 'negativo' %} text-danger {% else %} text-warning {% endif %}"
+        style="font-weight: bold; font-size: 1.5rem"
+      >
+        {{ sentiment }}
+      </p>
       {% endif %}
     </div>
   </body>
