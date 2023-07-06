@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 import neuralSentiment as ns
+import similiarText as st
 
 app = Flask(__name__)
 
@@ -13,4 +14,5 @@ def home():
 
     sentence = request.form['sentence']
     sentiment = ns.predict_sentiment(sentence)
+
     return render_template('index.html', sentiment=sentiment)

@@ -25,24 +25,91 @@
         value="Submit"
         class="btn btn-primary d-block mx-auto w-25 my-5"
       />
+      <div
+        class="d-flex justify-content-center align-items-center w-50 mx-auto my-5 p-5 border border-primary"
+      >
+        <p
+          class="text-center"
+          style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
+        >
+          Sentiment:
+        </p>
+        {% if sentiment %}
+        <p
+          class="text-center {% if sentiment == 'Positive' %} text-success {% elif sentiment == 'negativo' %} text-danger {% else %} text-warning {% endif %}"
+          style="font-weight: bold; font-size: 1.5rem"
+        >
+          {{ sentiment }}
+        </p>
+        {% endif %}
+      </div>
+
+      <h1 class="text-center text-primary my-5">Similar text</h1>
+      <input
+        type="text"
+        name="firstText"
+        placeholder="Enter the first sentence"
+        class="form-control w-50 mx-auto my-5"
+      />
+      <input
+        type="text"
+        name="secondText"
+        placeholder="Enter the second sentence"
+        class="form-control w-50 mx-auto my-5"
+      />
+      <input
+        type="submit"
+        value="Submit"
+        class="btn btn-primary d-block mx-auto w-25 my-5"
+      />
+      <div
+        class="d-grid justify-content-center align-items-center w-50 mx-auto my-5 p-5 border border-primary"
+      >
+        <p
+          class="text-center"
+          style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
+        >
+          First sentence:
+        </p>
+        {% if text1 %}
+        <p
+          class="text-center"
+          style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
+        >
+          {{ text1 }}
+        </p>
+        {% endif %}
+
+        <p
+          class="text-center"
+          style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
+        >
+          Second sentence:
+        </p>
+        {% if text2 %}
+        <p
+          class="text-center"
+          style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
+        >
+          {{ text2 }}
+        </p>
+        {% endif %}
+
+        <p
+          class="text-center"
+          style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
+        >
+          Similarity:
+        </p>
+        {% if similarity %}
+        <p
+          class="text-center {% if similarity > 0.5 %} text-success {% elif similarity > 0.3 %} text-warning {% else %} text-danger {% endif %}"
+          style="font-weight: bold; font-size: 1.5rem"
+        >
+          {{ similarity }}
+        </p>
+        {% endif %}
+      </div>
     </form>
-    <div
-      class="d-flex justify-content-center align-items-center w-50 mx-auto my-5 p-5 border border-primary"
-    >
-      <p
-        class="text-center"
-        style="font-weight: bold; font-size: 1.5rem; margin-right: 0.5rem"
-      >
-        Sentiment:
-      </p>
-      {% if sentiment %}
-      <p
-        class="text-center {% if sentiment == 'Positive' %} text-success {% elif sentiment == 'negativo' %} text-danger {% else %} text-warning {% endif %}"
-        style="font-weight: bold; font-size: 1.5rem"
-      >
-        {{ sentiment }}
-      </p>
-      {% endif %}
-    </div>
   </body>
 </html>
